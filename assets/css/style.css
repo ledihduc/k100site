@@ -44,10 +44,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-body.show{
- overflow-y: hidden;
-/* padding-right: 15px;*/
-}
+
 a{
   text-decoration: none;
   transition: 0.1s all;
@@ -96,8 +93,16 @@ img{
 }
 
 header#masthead{
-	padding-top: 14px;
-	padding-bottom: 14px;
+  padding-top: 14px;
+    padding-bottom: 14px;
+    position: fixed;
+    width: 100%;
+    background:var(--color-white);
+    z-index: 9999;
+}
+
+header#masthead.masthead-sticky{
+  box-shadow: 1px 1px 6px #e3e3e3;
 }
 
 .site-branding .img-logo{
@@ -635,14 +640,11 @@ h2.heading-title{
 }
 
 #site-navigation{
-  position: absolute;
+  position: fixed;
   top: 83px;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
   background: rgba(253, 245, 248, 1);
-/*  height: calc(100% - 83px);
-  height: -moz-calc(100% - 83px);
-  height: -webkit-calc(100% - 83px);*/
   height: 0;
   opacity: 0;
   padding-top: 20px;
@@ -650,12 +652,15 @@ h2.heading-title{
   overflow-x: hidden;
   overflow-y: auto;
   transition: 0.2s all;
+      white-space: nowrap;
+    visibility: hidden;
 }
 #site-navigation.show{
   height: calc(100% - 83px);
   height: -moz-calc(100% - 83px);
   height: -webkit-calc(100% - 83px);
   opacity: 1;
+  visibility: visible;
 }
 #site-navigation ul{
        list-style-type: none;
@@ -681,6 +686,9 @@ h2.heading-title{
   font-family: Zen Maru Gothic;
   font-size: 16px;
   line-height: 16px;
+}
+#primary{
+  margin-bottom: 83px;
 }
 @media (max-width: 1199px){
   .site-main .banner h1 {
@@ -1106,6 +1114,9 @@ h2.heading-title{
     right: 0;
     bottom: 0;
     position: absolute;
+  }
+  #site-navigation{
+        top: 58px;
   }
 }
 @media (min-width: 992px){
